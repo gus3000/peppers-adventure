@@ -29,6 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6145883, 8)
 environment = SubResource("Environment_5ol1l")
 script = ExtResource("3_50ct6")
 target = NodePath("../Player")
+dead_zone_horizontal = 0.3
 
 [node name="Frame" type="Node2D" parent="Camera3D" unique_id=1820987487]
 script = ExtResource("5_ak5v8")

@@ -8,19 +8,18 @@ extends Node2D
 
 var rect: Rect2 = Rect2(50, 50, 100, 100)
 
+@onready var viewport_rect: Rect2 = get_viewport().get_visible_rect()
+@onready var offset_x: float = camera.dead_zone_horizontal * viewport_rect.size.x / 2
+@onready var offset_y: float = camera.dead_zone_vertical * viewport_rect.size.y / 2
+@onready var center: Vector2 = viewport_rect.get_center()
+@onready var top_left: Vector2 = center + Vector2(-offset_x, -offset_y)
+@onready var bottom_left: Vector2 = center + Vector2(-offset_x, offset_y)
+@onready var bottom_right: Vector2 = center + Vector2(offset_x, offset_y)
+@onready var top_right: Vector2 = center + Vector2(offset_x, -offset_y)
+
 func _draw() -> void:
 	if not debug or not OS.is_debug_build():
 		return
-	
-	var viewport_rect: Rect2 = get_viewport().get_visible_rect()
-	var offset_x: float = camera.dead_zone_horizontal * viewport_rect.size.x / 2
-	var offset_y: float = camera.dead_zone_vertical * viewport_rect.size.y / 2
-
-	var center: Vector2 = viewport_rect.get_center()
-	var top_left: Vector2 = center + Vector2(-offset_x, -offset_y)
-	var bottom_left: Vector2 = center + Vector2(-offset_x, offset_y)
-	var bottom_right: Vector2 = center + Vector2(offset_x, offset_y)
-	var top_right: Vector2 = center + Vector2(offset_x, -offset_y)
 
 	var color: Color = Color.RED
 	var width: float = 2

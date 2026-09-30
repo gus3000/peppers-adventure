@@ -30,6 +30,6 @@ environment = SubResource("Environment_5ol1l")
 script = ExtResource("3_50ct6")
 target = NodePath("../Player")
 
-[node name="Node2D" type="Node2D" parent="Camera3D" unique_id=1820987487]
+[node name="Frame" type="Node2D" parent="Camera3D" unique_id=1820987487]
 script = ExtResource("5_ak5v8")
 debug = true

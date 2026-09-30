@@ -1,23 +1,50 @@
 [gd_scene format=3 uid="uid://b31wu1jek38d1"]
 
 [ext_resource type="PackedScene" uid="uid://t0b0itjb4ixc" path="res://Scenes/Components/player.tscn" id="1_3dogw"]
+[ext_resource type="PackedScene" uid="uid://bmobgxfjph6q1" path="res://Scenes/World/training_room.tscn" id="2_r5l72"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_hb2xm"]
+[ext_resource type="Resource" uid="uid://cptfoggk2ok67" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_3d_tween.tres" id="3_x033f"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_rdbpf"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ak5v8"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_50ct6"]
-
-[sub_resource type="Sky" id="Sky_r5l72"]
-sky_material = SubResource("ProceduralSkyMaterial_50ct6")
-
-[sub_resource type="Environment" id="Environment_3dogw"]
-background_mode = 2
-sky = SubResource("Sky_r5l72")
+[sub_resource type="Resource" id="Resource_wg1pr"]
+script = ExtResource("4_rdbpf")
 
 [node name="TestScene" type="Node3D" unique_id=306994430]
 
-[node name="Player" parent="." unique_id=1542962710 instance=ExtResource("1_3dogw")]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=426744777 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6145883, 8)
+top_level = true
+script = ExtResource("3_hb2xm")
+follow_mode = 5
+follow_target = NodePath("../Player")
+tween_resource = ExtResource("3_x033f")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_wg1pr")
+follow_damping = true
+follow_distance = 8.0
+dead_zone_width = 0.139
+dead_zone_height = 0.14
+show_viewfinder_in_play = true
+spring_length = 8.0
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1451475731]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.678778)
-environment = SubResource("Environment_3dogw")
+[node name="Player" parent="." unique_id=1542962710 instance=ExtResource("1_3dogw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6145883, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=834760928]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, -10, 5, 0)
+
+[node name="World" parent="." unique_id=1462914235 instance=ExtResource("2_r5l72")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1586564680]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6145883, 8)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1566932490]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_ak5v8")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"

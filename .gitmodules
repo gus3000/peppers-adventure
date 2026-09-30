@@ -1,0 +1,4 @@
+[submodule "phantom_camera"]
+	path = external/phantom_camera
+	url = git@github.com:ramokz/phantom-camera.git
+	branch = 0.11.0.3

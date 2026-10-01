@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 
@@ -6,10 +7,11 @@ const JUMP_VELOCITY: float = 4.5
 
 var direction: int = 1
 
-@onready var animation_player: AnimationPlayer = $pepper/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
 
 func _ready() -> void:
-	animation_player.play("Breathe") # TODO use state machine
+	Log.pr("animation_player : ", animation_player)
+	animation_player.play("Breathe")  # TODO use state machine
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -28,6 +30,6 @@ func _physics_process(delta: float) -> void:
 		direction = -1
 	elif input_axis > 0:
 		direction = 1
-	
+
 	velocity.x = input_axis * SPEED
 	move_and_slide()

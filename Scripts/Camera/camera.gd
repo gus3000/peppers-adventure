@@ -2,7 +2,7 @@ class_name Camera
 extends Camera3D
 
 @export var target: Node3D
-@export var speed:float = 5
+@export var speed: float = 5
 
 ## The zone in which the camera lets the target move without following.
 ## Unit : screen space [0;1]

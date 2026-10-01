@@ -2,14 +2,26 @@
 
 [ext_resource type="Script" uid="uid://dofehynoumann" path="res://Player/Scripts/player.gd" id="1_vu1j6"]
 [ext_resource type="PackedScene" uid="uid://bqm8qhfkqglgn" path="res://Player/Model/pepper.glb" id="2_coypj"]
+[ext_resource type="Script" uid="uid://clmapk1yws8mh" path="res://Player/Scripts/States/state_machine.gd" id="3_i6t11"]
+[ext_resource type="Script" uid="uid://bm5u1cp8kyafg" path="res://Player/Scripts/States/idle.gd" id="4_p0vwk"]
+[ext_resource type="Script" uid="uid://dofvj4n1q37vq" path="res://Player/Scripts/States/walk.gd" id="5_sgrgp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dayrp"]
 
-[node name="Player" type="CharacterBody3D" unique_id=2130719716]
+[node name="Player" type="CharacterBody3D" unique_id=2130719716 groups=["player"]]
 script = ExtResource("1_vu1j6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1377657442]
 shape = SubResource("CapsuleShape3D_dayrp")
 
-[node name="pepper" parent="." unique_id=1880989400 instance=ExtResource("2_coypj")]
+[node name="Model" parent="." unique_id=1880989400 instance=ExtResource("2_coypj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="StateMachine" type="Node" parent="." unique_id=265230764]
+script = ExtResource("3_i6t11")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1167869814]
+script = ExtResource("4_p0vwk")
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1830045751]
+script = ExtResource("5_sgrgp")

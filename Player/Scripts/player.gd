@@ -6,6 +6,12 @@ const JUMP_VELOCITY: float = 4.5
 
 var direction: int = 1
 
+@onready var animation_player: AnimationPlayer = $pepper/AnimationPlayer
+
+func _ready() -> void:
+	animation_player.play("Breathe") # TODO use state machine
+	pass
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

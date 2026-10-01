@@ -5,3 +5,6 @@
 /build/web/*
 /build/windows/*
 Doc/.trash
+
+# Blender temp file
+*.blend1

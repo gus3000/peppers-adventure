@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://uotmm1fu4s0p"]
+
+[ext_resource type="Shader" uid="uid://dmyra81to5xr4" path="res://Assets/Shaders/water_shader.gdshader" id="1_h4p64"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h4p64")

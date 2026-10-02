@@ -23,16 +23,17 @@
             "id": "777da5cfdb294103",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Game Ideas.md"
+                "file": "Excalidraw/inc/Dimensions choice.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Game Ideas"
+              "icon": "lucide-file",
+              "title": "Dimensions choice"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -180,13 +181,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "6dc3732dec0aa5eb",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw-sidepanel",
+              "state": {},
+              "icon": "excalidraw-icon",
+              "title": "Excalidraw Sidepanel"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,11 +211,13 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "777da5cfdb294103",
+  "active": "8ddab7f846a9f521",
   "lastOpenFiles": [
+    "Excalidraw/inc/Dimensions choice.md",
+    "Excalidraw/Game Ideas.md",
+    "Excalidraw/inc",
     "Links.md",
     "Excalidraw/Kanban.md",
-    "Excalidraw/Game Ideas.md",
     "Excalidraw",
     "Boards/Untitled.md",
     "Boards",
